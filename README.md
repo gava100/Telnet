@@ -22,6 +22,8 @@ it'll help others with the same problems and we'll see what we can do to accomod
 
 v0.10 introduced an unintended dependency that's removed as of 0.11.2.
 
+v0.13.1 introduced support for Visual Studio 2019 and dotnet 4.6.1.
+
 ## Most common functions in C# NuGet
 Depending on which version of this library you use, you may or may not have access to asynchronous functionality. Wherever possible we would recommend using the async overloads.
  - Client - ```var client = new Client(\<ip string>, \<port#>, new CancellationToken()));```
