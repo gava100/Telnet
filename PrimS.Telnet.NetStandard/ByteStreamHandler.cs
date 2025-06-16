@@ -344,14 +344,22 @@
         System.Diagnostics.Debug.WriteLine(Enum.GetName(typeof(Options), inputOption));
         var outBuffer = new byte[3];
         outBuffer[0] = (byte)Commands.InterpretAsCommand;
-        outBuffer[1] = inputOption switch
+
+        switch (inputOption)
         {
-          (int)Options.SuppressGoAhead => inputVerb == (int)Commands.Do ? (byte)Commands.Will : (byte)Commands.Do,
-          (int)Options.TerminalType => inputVerb == (int)Commands.Do ? (byte)Commands.Will : (byte)Commands.Do,
-          (int)Options.TerminalSpeed => inputVerb == (int)Commands.Do ? (byte)Commands.Will : (byte)Commands.Do,
-          (int)Options.WindowSize => inputVerb == (int)Commands.Do ? (byte)Commands.Will : (byte)Commands.Do,
-          _ => inputVerb == (int)Commands.Do ? (byte)Commands.Wont : (byte)Commands.Dont,
-        };
+          case (int)Options.SuppressGoAhead:
+          case (int)Options.TerminalType:
+          case (int)Options.TerminalSpeed:
+#if ENABLE_HANDLE_WINDOW_SIZE
+          case (int)Options.WindowSize:
+#endif
+            outBuffer[1] = inputVerb == (int)Commands.Do ? (byte)Commands.Will : (byte)Commands.Do;
+            break;
+
+          default:
+            outBuffer[1] = inputVerb == (int)Commands.Do ? (byte)Commands.Wont : (byte)Commands.Dont;
+            break;
+        }
 
         outBuffer[2] = (byte)inputOption;
 #if ASYNC
@@ -360,14 +368,18 @@
         byteStream.Write(outBuffer, 0, outBuffer.Length);
 #endif
 
+#if ENABLE_HANDLE_WINDOW_SIZE
         if (inputOption == (int)Options.WindowSize)
         {  // NAWS needs to be sent immediately because the server doesn't request subnegotiation.
           var clientNAWS = ((char)132 + (char)0 + (char)24).ToString(); // This could be an environment variable
+
 #if ASYNC
           await
 #endif
           SendNegotiation(inputOption, clientNAWS);
         }
+#endif
+
       }
     }
 

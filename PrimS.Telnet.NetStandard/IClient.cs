@@ -111,7 +111,7 @@
     /// </summary>
     /// <param name="command">The command.</param>
     /// <returns>An awaitable Task.</returns>
-    public Task WriteLineAsync(string command);
+    Task WriteLineAsync(string command);
 
     /// <summary>
     /// Writes the specified <paramref name="command"/> to the server.
