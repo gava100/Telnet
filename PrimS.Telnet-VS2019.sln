@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35026.282
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{C32FBB99-146C-4733-BA43-D725EBDBF7F5}"
+	ProjectSection(SolutionItems) = preProject
+		BuildNuget.ps1 = BuildNuget.ps1
+		License.txt = License.txt
+		nuget.exe = nuget.exe
+		Ptelnet128x600.png = Ptelnet128x600.png
+		Telnet.nuspec = Telnet.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{FFCF9AB9-95FA-40CE-89CD-37F5D82D23E2}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		README.md = README.md
+		Settings.StyleCop = Settings.StyleCop
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{CB09D5D1-A0A1-4190-91A6-F259E60AAC72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{49C8DB0D-CA4C-402C-9A7D-4AB0A6268472}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimS.Telnet", "PrimS.Telnet\PrimS.Telnet-VS2019.csproj", "{6622F6E1-90B2-4766-8DB3-372A06761F60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6622F6E1-90B2-4766-8DB3-372A06761F60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6622F6E1-90B2-4766-8DB3-372A06761F60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6622F6E1-90B2-4766-8DB3-372A06761F60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6622F6E1-90B2-4766-8DB3-372A06761F60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{49C8DB0D-CA4C-402C-9A7D-4AB0A6268472} = {CB09D5D1-A0A1-4190-91A6-F259E60AAC72}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2BE0BC56-5673-4BC5-AB2A-2645AD51175C}
+	EndGlobalSection
+EndGlobal
